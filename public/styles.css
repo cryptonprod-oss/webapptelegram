@@ -1,0 +1,221 @@
+:root {
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --line: #e5e5ea;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --primary: #0071e3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 46px);
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  max-width: 720px;
+  margin: 12px auto 0;
+  color: var(--muted);
+}
+
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.channels,
+.storefront,
+.checkout {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.channels {
+  margin-bottom: 18px;
+}
+
+.channel-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.channel-name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.primary {
+  border: 0;
+  border-radius: 980px;
+  background: var(--primary);
+  color: #fff;
+  padding: 11px 18px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.store-head {
+  margin-bottom: 14px;
+}
+
+.products {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.product-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.gallery-main {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 10px;
+  background: #fafafc;
+}
+
+.gallery-strip img {
+  width: 100%;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-body {
+  padding: 16px;
+}
+
+.product-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.product-title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.product-meta {
+  margin: 8px 0 14px;
+  color: var(--muted);
+}
+
+.buy-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkout {
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+input,
+select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 12px;
+  font: inherit;
+  background: #fff;
+}
+
+.sticky-buy {
+  margin-top: 4px;
+  position: sticky;
+  bottom: 8px;
+}
+
+.status {
+  min-height: 20px;
+  margin: 10px 0 0;
+}
+
+@media (max-width: 700px) {
+  .channel-card,
+  .product-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery-main {
+    height: 210px;
+  }
+}

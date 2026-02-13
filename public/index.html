@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Style Club Store</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <p class="eyebrow">Private Telegram Membership</p>
+        <h1>Минималистичная витрина доступа к приватным каналам</h1>
+        <p class="sub">Сначала выбираете автора, затем открывается аккуратная витрина с товарами и кнопкой «Купить».</p>
+      </header>
+
+      <section class="channels">
+        <h2>Выберите канал</h2>
+        <article class="channel-card">
+          <div>
+            <p class="channel-name">Анастасия</p>
+            <p class="muted">Premium lifestyle & education club в Telegram</p>
+          </div>
+          <button id="open-anastasia" class="primary">Открыть витрину</button>
+        </article>
+      </section>
+
+      <section id="storefront" class="storefront hidden">
+        <div class="store-head">
+          <h2>Витрина «Анастасия»</h2>
+          <p class="muted">Выберите подходящий формат доступа</p>
+        </div>
+
+        <div id="products" class="products"></div>
+
+        <section class="checkout" id="checkout">
+          <h3>Оформление покупки</h3>
+          <form id="order-form" class="form">
+            <label>
+              Имя
+              <input name="fullName" placeholder="Иван Петров" required />
+            </label>
+
+            <label>
+              Telegram username
+              <input name="telegramUsername" placeholder="@username" required />
+            </label>
+
+            <label>
+              Товар
+              <select id="productId" name="productId" required>
+                <option value="">Выберите товар</option>
+              </select>
+            </label>
+
+            <button type="submit" class="primary sticky-buy">Купить</button>
+          </form>
+          <p id="status" class="status"></p>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

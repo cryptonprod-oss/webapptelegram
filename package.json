@@ -1,0 +1,10 @@
+{
+  "name": "telegram-private-chats-miniapp",
+  "version": "1.0.0",
+  "description": "Telegram Mini App для продажи доступа в приватные чаты и каналы",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
