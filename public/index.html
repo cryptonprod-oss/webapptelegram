@@ -3,66 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Private Club Store</title>
-    <link rel="preconnect" href="https://images.unsplash.com" />
+    <title>Apple Style Club Store</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app">
       <header class="hero">
-        <div>
-          <p class="badge">PRIVATE MEMBERSHIP STORE</p>
-          <h1>Как сайт одежды, только продаём доступ в закрытые Telegram‑клубы</h1>
-          <p class="muted">
-            Выбирайте «коллекцию», смотрите карточки с обложками и оформляйте доступ в пару кликов.
-          </p>
-        </div>
-        <a href="#checkout" class="hero-btn">Оформить доступ</a>
+        <p class="eyebrow">Private Telegram Membership</p>
+        <h1>Минималистичная витрина доступа к приватным каналам</h1>
+        <p class="sub">Сначала выбираете автора, затем открывается аккуратная витрина с товарами и кнопкой «Купить».</p>
       </header>
 
-      <section class="filters">
-        <button class="filter active">Новые</button>
-        <button class="filter">Популярные</button>
-        <button class="filter">VIP</button>
-        <button class="filter">Комбо</button>
+      <section class="channels">
+        <h2>Выберите канал</h2>
+        <article class="channel-card">
+          <div>
+            <p class="channel-name">Анастасия</p>
+            <p class="muted">Premium lifestyle & education club в Telegram</p>
+          </div>
+          <button id="open-anastasia" class="primary">Открыть витрину</button>
+        </article>
       </section>
 
-      <section>
-        <div class="section-head">
-          <h2>Витрина клубов</h2>
-          <p class="muted">Лимитированные места и постоянные обновления</p>
-        </div>
-        <div id="products" class="cards"></div>
-      </section>
-
-      <section id="checkout" class="checkout">
-        <div>
-          <h2>Быстрая покупка доступа</h2>
-          <p class="muted">После заявки менеджер подтвердит оплату и отправит инвайт-ссылку.</p>
+      <section id="storefront" class="storefront hidden">
+        <div class="store-head">
+          <h2>Витрина «Анастасия»</h2>
+          <p class="muted">Выберите подходящий формат доступа</p>
         </div>
 
-        <form id="order-form" class="form">
-          <label>
-            Ваше имя
-            <input name="fullName" placeholder="Иван Петров" required />
-          </label>
+        <div id="products" class="products"></div>
 
-          <label>
-            Telegram username
-            <input name="telegramUsername" placeholder="@username" required />
-          </label>
+        <section class="checkout" id="checkout">
+          <h3>Оформление покупки</h3>
+          <form id="order-form" class="form">
+            <label>
+              Имя
+              <input name="fullName" placeholder="Иван Петров" required />
+            </label>
 
-          <label>
-            Тариф
-            <select id="productId" name="productId" required>
-              <option value="">Выберите тариф</option>
-            </select>
-          </label>
+            <label>
+              Telegram username
+              <input name="telegramUsername" placeholder="@username" required />
+            </label>
 
-          <button type="submit">Купить доступ</button>
-        </form>
+            <label>
+              Товар
+              <select id="productId" name="productId" required>
+                <option value="">Выберите товар</option>
+              </select>
+            </label>
 
-        <p id="status" class="status"></p>
+            <button type="submit" class="primary sticky-buy">Купить</button>
+          </form>
+          <p id="status" class="status"></p>
+        </section>
       </section>
     </main>
 

@@ -8,33 +8,51 @@ const publicDir = path.join(__dirname, 'public');
 const products = [
   {
     id: 1,
-    title: 'Доступ в приватный чат Pro Traders',
-    description: 'Ежедневные торговые идеи, разбор сделок и Q&A в закрытом чате.',
+    channelName: 'Анастасия',
+    title: 'Базовый доступ в канал Анастасии',
+    description: 'Ежедневные посты, подборки и личные рекомендации в закрытом канале.',
     priceRub: 2990,
-    period: '30 дней',
-    type: 'chat',
-    imageUrl:
-      'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80'
-  },
-  {
-    id: 2,
-    title: 'VIP канал с сигналами',
-    description: 'Сигналы, аналитика и уведомления в приватном Telegram-канале.',
-    priceRub: 4990,
     period: '30 дней',
     type: 'channel',
     imageUrl:
-      'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80',
+    galleryUrls: [
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80'
+    ]
+  },
+  {
+    id: 2,
+    channelName: 'Анастасия',
+    title: 'VIP-доступ + еженедельные эфиры',
+    description: 'Все материалы канала + закрытые эфиры с разбором и личными ответами.',
+    priceRub: 4990,
+    period: '30 дней',
+    type: 'vip',
+    imageUrl:
+      'https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=1400&q=80',
+    galleryUrls: [
+      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=1200&q=80'
+    ]
   },
   {
     id: 3,
-    title: 'Пакет MAX: чат + канал',
-    description: 'Полный доступ ко всем материалам и приоритетная поддержка.',
+    channelName: 'Анастасия',
+    title: 'Premium: канал + приватный чат',
+    description: 'Максимальный пакет: канал, чат с комьюнити и приоритетная поддержка.',
     priceRub: 6990,
     period: '30 дней',
     type: 'bundle',
     imageUrl:
-      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1400&q=80',
+    galleryUrls: [
+      'https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80'
+    ]
   }
 ];
 
@@ -98,7 +116,7 @@ function handleOrder(req, res) {
 
       sendJson(res, 200, {
         ok: true,
-        message: 'Заявка отправлена. Мы свяжемся с вами в Telegram в ближайшее время.',
+        message: `Заявка на «${product.title}» принята. Мы свяжемся с вами в Telegram в ближайшее время.`,
         order: { fullName, telegramUsername, product }
       });
     } catch {
