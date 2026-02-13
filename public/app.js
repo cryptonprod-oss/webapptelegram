@@ -12,10 +12,15 @@ function renderProducts(products) {
     .map(
       (product) => `
       <article class="card">
-        <h3>${product.title}</h3>
-        <p>${product.description}</p>
-        <p class="muted">Период: ${product.period}</p>
-        <p class="price">${formatPrice(product.priceRub)} ₽</p>
+        <img class="card-cover" src="${product.imageUrl}" alt="${product.title}" loading="lazy" />
+        <div class="card-body">
+          <h3>${product.title}</h3>
+          <p>${product.description}</p>
+          <div class="price-row">
+            <p class="price">${formatPrice(product.priceRub)} ₽</p>
+            <span class="tag">${product.period}</span>
+          </div>
+        </div>
       </article>
     `
     )
@@ -39,7 +44,7 @@ async function loadProducts() {
 
 async function submitOrder(event) {
   event.preventDefault();
-  statusText.textContent = 'Отправляем...';
+  statusText.textContent = 'Оформляем заказ...';
 
   const formData = new FormData(orderForm);
   const payload = Object.fromEntries(formData.entries());
@@ -62,7 +67,7 @@ async function submitOrder(event) {
   statusText.style.color = '#72e3a6';
 
   if (window.Telegram?.WebApp) {
-    window.Telegram.WebApp.showAlert('Заявка принята! Сейчас откроем чат с менеджером.');
+    window.Telegram.WebApp.showAlert('Заявка принята! Откроем чат с менеджером.');
     window.Telegram.WebApp.openTelegramLink('https://t.me/durov');
   }
 
@@ -74,11 +79,6 @@ function initTelegramWebApp() {
 
   window.Telegram.WebApp.ready();
   window.Telegram.WebApp.expand();
-
-  const tgTheme = window.Telegram.WebApp.themeParams;
-  if (tgTheme.bg_color) {
-    document.body.style.background = tgTheme.bg_color;
-  }
 }
 
 initTelegramWebApp();

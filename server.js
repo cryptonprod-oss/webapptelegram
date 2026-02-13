@@ -12,7 +12,9 @@ const products = [
     description: 'Ежедневные торговые идеи, разбор сделок и Q&A в закрытом чате.',
     priceRub: 2990,
     period: '30 дней',
-    type: 'chat'
+    type: 'chat',
+    imageUrl:
+      'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 2,
@@ -20,7 +22,9 @@ const products = [
     description: 'Сигналы, аналитика и уведомления в приватном Telegram-канале.',
     priceRub: 4990,
     period: '30 дней',
-    type: 'channel'
+    type: 'channel',
+    imageUrl:
+      'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 3,
@@ -28,7 +32,9 @@ const products = [
     description: 'Полный доступ ко всем материалам и приоритетная поддержка.',
     priceRub: 6990,
     period: '30 дней',
-    type: 'bundle'
+    type: 'bundle',
+    imageUrl:
+      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 

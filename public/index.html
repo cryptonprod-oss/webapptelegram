@@ -3,26 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini App: Приватные чаты и каналы</title>
+    <title>Private Club Store</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app">
       <header class="hero">
-        <p class="badge">Telegram Mini App</p>
-        <h1>Продажа доступа в приватные чаты и каналы</h1>
-        <p class="muted">
-          Выберите тариф, оставьте заявку и получите доступ через Telegram.
-        </p>
+        <div>
+          <p class="badge">PRIVATE MEMBERSHIP STORE</p>
+          <h1>Как сайт одежды, только продаём доступ в закрытые Telegram‑клубы</h1>
+          <p class="muted">
+            Выбирайте «коллекцию», смотрите карточки с обложками и оформляйте доступ в пару кликов.
+          </p>
+        </div>
+        <a href="#checkout" class="hero-btn">Оформить доступ</a>
       </header>
 
+      <section class="filters">
+        <button class="filter active">Новые</button>
+        <button class="filter">Популярные</button>
+        <button class="filter">VIP</button>
+        <button class="filter">Комбо</button>
+      </section>
+
       <section>
-        <h2>Тарифы</h2>
+        <div class="section-head">
+          <h2>Витрина клубов</h2>
+          <p class="muted">Лимитированные места и постоянные обновления</p>
+        </div>
         <div id="products" class="cards"></div>
       </section>
 
-      <section class="order-box">
-        <h2>Оформить заявку</h2>
+      <section id="checkout" class="checkout">
+        <div>
+          <h2>Быстрая покупка доступа</h2>
+          <p class="muted">После заявки менеджер подтвердит оплату и отправит инвайт-ссылку.</p>
+        </div>
+
         <form id="order-form" class="form">
           <label>
             Ваше имя
@@ -35,14 +53,15 @@
           </label>
 
           <label>
-            Выбранный тариф
+            Тариф
             <select id="productId" name="productId" required>
               <option value="">Выберите тариф</option>
             </select>
           </label>
 
-          <button type="submit">Отправить заявку</button>
+          <button type="submit">Купить доступ</button>
         </form>
+
         <p id="status" class="status"></p>
       </section>
     </main>

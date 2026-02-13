@@ -1,10 +1,11 @@
 :root {
-  color-scheme: light dark;
   --bg: #0f1115;
-  --card: #1a1f29;
-  --text: #f2f4f8;
-  --muted: #a5adbb;
-  --accent: #30a3ff;
+  --card: #161b24;
+  --card-2: #1f2532;
+  --text: #f4f7ff;
+  --muted: #a8b3c7;
+  --accent: #55d2ff;
+  --accent-2: #8f7bff;
 }
 
 * {
@@ -13,106 +14,196 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #1f2937 0%, var(--bg) 45%);
-  color: var(--text);
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, #222a3b, transparent 30%),
+    radial-gradient(circle at 90% 0%, #2a2350, transparent 35%),
+    var(--bg);
 }
 
 .app {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 24px 16px 48px;
 }
 
 .hero {
-  margin-bottom: 24px;
+  background: linear-gradient(120deg, rgba(85, 210, 255, 0.18), rgba(143, 123, 255, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  padding: 26px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
 }
 
 .badge {
   display: inline-block;
   margin: 0 0 10px;
-  padding: 6px 10px;
+  padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(48, 163, 255, 0.18);
-  color: #81c5ff;
+  background: rgba(10, 16, 29, 0.5);
   font-size: 12px;
+  letter-spacing: 0.8px;
 }
 
 h1 {
-  margin: 0;
-  font-size: 30px;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  font-size: clamp(24px, 4vw, 40px);
+  max-width: 730px;
 }
 
 h2 {
-  margin-top: 0;
+  margin: 0;
 }
 
 .muted {
   color: var(--muted);
 }
 
+.hero-btn {
+  text-decoration: none;
+  color: #081424;
+  background: linear-gradient(120deg, var(--accent), #9ce9ff);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.filters {
+  margin: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.filter.active {
+  background: rgba(85, 210, 255, 0.22);
+  border-color: transparent;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 12px;
+}
+
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 12px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 14px;
 }
 
 .card {
+  border-radius: 16px;
+  overflow: hidden;
   background: var(--card);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.card-cover {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
   padding: 14px;
 }
 
 .card h3 {
-  margin-top: 0;
+  margin: 0 0 8px;
   font-size: 18px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
 }
 
 .price {
   font-size: 24px;
-  font-weight: 700;
-  margin: 8px 0;
+  font-weight: 800;
+  margin: 0;
 }
 
-.order-box {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+.tag {
+  font-size: 12px;
+  background: rgba(85, 210, 255, 0.17);
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+
+.checkout {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--card-2), var(--card));
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .form {
+  margin-top: 12px;
   display: grid;
   gap: 12px;
 }
 
 label {
   display: grid;
-  gap: 6px;
+  gap: 7px;
+  font-size: 14px;
 }
 
 input,
 select,
 button {
   font: inherit;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #111722;
+  padding: 12px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0f1520;
   color: var(--text);
 }
 
 button {
-  cursor: pointer;
-  background: var(--accent);
-  color: #001328;
   border: 0;
   font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #07152c;
 }
 
 .status {
+  margin: 10px 0 0;
   min-height: 20px;
-  margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
 }
