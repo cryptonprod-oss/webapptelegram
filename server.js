@@ -2,7 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const port = process.env.PORT || 3000;
+const defaultPort = 3000;
+const requestedPort = Number(process.env.PORT) || defaultPort;
 const publicDir = path.join(__dirname, 'public');
 
 const products = [
@@ -144,6 +145,32 @@ const server = http.createServer((req, res) => {
   sendJson(res, 405, { ok: false, message: 'Метод не поддерживается.' });
 });
 
-server.listen(port, () => {
-  console.log(`Mini App запущен: http://localhost:${port}`);
-});
+function startServer(portToTry, retriesLeft = 10) {
+  server.once('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      if (process.env.PORT) {
+        console.error(`Порт ${portToTry} уже занят. Укажите другой порт: PORT=3001 npm start`);
+        process.exit(1);
+      }
+
+      if (retriesLeft <= 0) {
+        console.error('Не удалось найти свободный порт. Освободите порт 3000 или укажите PORT вручную.');
+        process.exit(1);
+      }
+
+      const nextPort = portToTry + 1;
+      console.warn(`Порт ${portToTry} занят, пробуем ${nextPort}...`);
+      startServer(nextPort, retriesLeft - 1);
+      return;
+    }
+
+    console.error('Ошибка запуска сервера:', err);
+    process.exit(1);
+  });
+
+  server.listen(portToTry, () => {
+    console.log(`Mini App запущен: http://localhost:${portToTry}`);
+  });
+}
+
+startServer(requestedPort);
