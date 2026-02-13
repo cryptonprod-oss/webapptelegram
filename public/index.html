@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini App: Приватные чаты и каналы</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <p class="badge">Telegram Mini App</p>
+        <h1>Продажа доступа в приватные чаты и каналы</h1>
+        <p class="muted">
+          Выберите тариф, оставьте заявку и получите доступ через Telegram.
+        </p>
+      </header>
+
+      <section>
+        <h2>Тарифы</h2>
+        <div id="products" class="cards"></div>
+      </section>
+
+      <section class="order-box">
+        <h2>Оформить заявку</h2>
+        <form id="order-form" class="form">
+          <label>
+            Ваше имя
+            <input name="fullName" placeholder="Иван Петров" required />
+          </label>
+
+          <label>
+            Telegram username
+            <input name="telegramUsername" placeholder="@username" required />
+          </label>
+
+          <label>
+            Выбранный тариф
+            <select id="productId" name="productId" required>
+              <option value="">Выберите тариф</option>
+            </select>
+          </label>
+
+          <button type="submit">Отправить заявку</button>
+        </form>
+        <p id="status" class="status"></p>
+      </section>
+    </main>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
